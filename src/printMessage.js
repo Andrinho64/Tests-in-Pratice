@@ -5,7 +5,13 @@ let info = {
 };
 
 const printMessage = (characterInfo) => {
-  // Implemente seu código aqui
+  if (typeof characterInfo !== 'object' || characterInfo === null || Array.isArray(characterInfo)) {
+    throw new Error('objeto inválido');
+  }
+
+  if (!('personagem' in characterInfo)) {
+    throw new Error('objeto inválido');
+  }
   let result = `Boas vindas, ${characterInfo.personagem}`;
 
   return result;
